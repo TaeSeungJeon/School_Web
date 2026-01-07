@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>표(Table) 만들기</title>
+</head>
+<body>
+
+<h3>표 만들기</h3>
+<!--이 예시는 폰트 수, 길이, 높이에 영향받음-->
+<table border="1" style="width:400px; height:300px; background-color: aliceblue; border-color:blue">
+
+    <tr>
+        <td>1000</td>
+        <td>2000</td>
+        <td>3000</td>
+        <td>4000</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+    </tr>
+</table>
+
+<br><hr color="orange"><br>
+<!--이 예시는 폰트 수, 길이, 높이에 영향받지 않음-->
+<table border="1" style="background-color: alicered; border-color:red">
+    <tr style="height:70px;">
+        <td style="width:93px;">1</td>
+        <td style="width:93px;">2</td>
+        <td style="width:93px;">3</td>
+        <td style="width:93px;">4</td>
+    </tr>
+    <tr style="height:70px; ">
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+    </tr>
+    <tr style="height:70px;">
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+    <tr style="height:70px;">
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+    </tr>
+</table>
+
+<br><hr color="orange"><br>
+
+<table border="1" style="width:400px; height:200px;">
+    <!--
+        표의 제목 : <caption>태그를 사용한다.
+        표의 제목 위치 정하기 (style로 설정)
+           : caption-side : 표의 위쪽(top)또는 아래쪽(bottom)에 나타나도록 한다.
+           :  text-align  : 내용을 가로 방향으로 정렬한다. (left, center, right)
+    -->
+    <caption style="caption-side:top; text-align:left">성적표</caption>
+    <tr>
+        <th>이름</th>   <!--  <th>태그 특 : 글자가 진하고, 가운데 정렬 | 컬럼의 제목을 나타낼 때 주로 사용  -->
+        <th>국어</th>
+        <th>영어</th>
+        <th>수학</th>
+    </tr>
+    <!--
+        각 셀(cell)의 내용들 정렬하기
+            1) text-align : 내용들을 가로 방향으로 정렬. (left, center, right)
+            2) vertical-align : 내용들을 세로 방향으로 정렬. (top, middle, bottom)
+    -->
+    <tr>
+        <th style="text-align:right; vertical-align:bottom;"><a href="https://www.naver.com">홍길동</a></th>
+        <th style="text-align:center; vertical-align:top">100</th>
+        <th style="vertical-align:top; font-size:35pt">100</th>
+        <th style="vertical-align:top">100<br><img src="../images/water.jpg"></th>
+    </tr>
+</table>
+<br><hr color="red"/><br>
+
+<!--
+    셀 병합
+        1) 가로 : colspan = "칸수"
+        2) 세로 : rowspan = "줄수"
+-->                                                             <!-- 간격 합치기 border-collapse:collapse -->
+<table border="3px" style="width:400px; height:200px; border-color:blue; border-collapse:collapse;">
+<tr>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td rowspan="3">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td colspan="2" rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

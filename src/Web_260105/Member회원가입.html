@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Member회원가입</title>
+</head>
+<style>
+    table { width: 600px; margin: 20px auto; border-top: 2px solid #8B4513; border-bottom: 2px solid #8B4513; border-collapse: collapse; }
+    td { padding: 8px; font-weight: bold; color: #8B4513; }
+    .title { text-align: center; color: #00C78C; font-size: 24px; margin-top: 30px; }
+    input[type="text"], input[type="password"] { border: 1px solid #999; height: 20px; }
+    .btn-container { text-align: center; margin-top: 15px; }
+    .btn { background-color: black; color: white; padding: 5px 15px; border: none; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<div class="title">::: Member 회원가입 :::</div>
+
+<form action="join_ok.jsp" method="post">
+    <table>
+        <tr>
+            <td>I D</td>
+            <td>
+                <input type="text" name="id" size="20">
+                <input type="button" value="ID 확인">
+            </td>
+        </tr>
+        <tr>
+            <td>이 름</td>
+            <td><input type="text" name="name" size="20"></td>
+        </tr>
+        <tr>
+            <td>PASSWORD</td>
+            <td><input type="password" name="pwd" size="20"></td>
+        </tr>
+        <tr>
+            <td>PASSWORD 재확인</td>
+            <td><input type="password" name="pwd_re" size="20"></td>
+        </tr>
+        <tr>
+            <td>주민등록번호</td>
+            <td>
+                <input type="text" name="jumin1" size="6"> -
+                <input type="password" name="jumin2" size="7">
+            </td>
+        </tr>
+        <tr>
+            <td>성 별</td>
+            <td>
+                <input type="radio" name="gender" value="male" checked>남
+                <input type="radio" name="gender" value="female">여
+            </td>
+        </tr>
+        <tr>
+            <td>우편번호</td>
+            <td>
+                <input type="text" name="zip" size="5"> -
+                <input type="text" name="zip2" size="5">
+                <input type="button" value="우편번호검색">
+            </td>
+        </tr>
+        <tr>
+            <td>주 소</td>
+            <td><input type="text" name="addr" size="50"></td>
+        </tr>
+        <tr>
+            <td>HOMETEL</td>
+            <td>
+                <select name="tel1">
+                    <option value="02">02</option>
+                    <option value="031">031</option>
+                    <option value="041">041</option>
+                    <option value="042">042</option>
+                    <option value="053">053</option>
+                </select> -
+                <input type="text" name="tel2" size="4"> -
+                <input type="text" name="tel3" size="4">
+            </td>
+        </tr>
+        <tr>
+            <td>H.P</td>
+            <td>
+                <select name="hp1">
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                </select> -
+                <input type="text" name="hp2" size="4"> -
+                <input type="text" name="hp3" size="4">
+            </td>
+        </tr>
+        <tr>
+            <td>E-MAIL</td>
+            <td>
+                <input type="text" name="email1" size="10"> @
+                <input type="text" name="email2" size="20">
+                <select name="email_domain">
+                    <option value="">직접입력</option>
+                    <option value="naver.com">naver.com</option>
+                    <option value="daum.net">daum.net</option>
+                    <option value="google.com">google.com</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <div class="btn-container">
+        <input type="submit" value="회원가입" class="btn">
+        <input type="reset" value="초 기 화" class="btn">
+    </div>
+</form>
+
+</body>
+</html>

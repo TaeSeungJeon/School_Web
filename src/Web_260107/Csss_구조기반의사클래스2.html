@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 구조기반 의사 클래스 2</title>
+
+    <style>
+
+        p,div {
+            font-size:20pt; width: 400px; height: 60px;
+            border: 1px solid black;
+            margin: 5px;
+        }
+        header { border:2px solid red; width:414px }
+
+        /*
+            셀렉터:nth-of-type(번호)
+                -> '셀렉터'의 부모의 모든 자식들 중에서
+                    '셀렉터'와 일치하는 요소들 중에서 '번호'번째
+                    요소를 선택한다.
+            셀렉터:nth-of-type(odd)
+            셀렉터:nth-of-type(even)
+            셀렉터:nth-of-type(xn + y) 동일 적용
+        */
+/*
+        div:nth-of-type(3){
+            background-color:cyan;
+        }
+
+       div:nth-of-type(odd) {
+            background-color:blue;
+        }
+        div:nth-of-type(even) {
+            background-color:cyan;
+        }
+
+        div:nth-of-type(even) {
+            background-color:cyan;
+        }
+
+
+        셀렉터:nth-last-of-type(번호)
+            -> '셀렉터'의 부모의 모든 자식들 중에서 '셀렉터'와 일치하는
+                요소들 중에서 뒤에서 '번호'번째 요소를 선택한다.
+        셀렉터:nth-last-of-type(odd)
+        셀렉터:nth-last-of-type(even)
+        셀렉터:nth-last-of-type(xn + y) 동일
+
+        div:nth-last-of-type(3){
+            background-color: yellow;
+        }
+
+        div:nth-last-of-type(odd){
+            background-color: blue;
+        }
+        div:nth-last-of-type(even){
+            background-color: red;
+        }
+ */
+        div:nth-last-of-type(2n-1){
+            background-color: skyblue;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>
+    <p>P첫째</p>
+    <p>P둘째</p>
+    <div>셋째</div>
+    <div>넷째</div>
+    <div>다섯째</div>
+</header>
+<div>여섯째</div>
+<div>일곱째</div>
+<div>여덟째</div>
+
+
+</body>
+</html>

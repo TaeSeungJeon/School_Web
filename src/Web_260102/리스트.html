@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>리스트</title>
+</head>
+<!--
+    리스트 종류
+    1. 순서가 없는 리스트 => <ul>태그 사용
+    2. 순서가 있는 리스트 => <ol>태그 사용          => <ul>태그와 <ol>태그의 하위 태그로 <li>태그를 사용하는데
+                                                  <li>태그에는 리스트에 나타날 항목들을 기술한다.
+    3. 정의 리스트       => <dl>태그 사용          => <dl>태그의 하위 태그
+                                                      1) <dt>태그 - 제목을 나타낸다.
+                                                      2) <dd>태그 - 그 내용을 기술한다.
+
+-->
+
+<body>
+<h3>순서가 없는 리스트</h3>     <!--
+                        <ul>태그의 스타일 속성 'list-style-type' 를 이용하여 블릿기호의 종류를 지정할 수 있다.
+                             -> disc , square , circle                                              -->
+<ul style="list-style-type:disc"><!--앞에 기호 생김-->
+    <li>사과</li>
+    <li>배</li>
+    <li>복숭아
+        <ol>
+            <li>조치원</li>
+            <li>청주</li>
+            <li>옥천</li>
+        </ol>
+    </li>
+    <li>대추</li>
+    <li>감</li>
+</ul>
+<hr color="red"/>
+
+<h3>순서가 있는 리스트</h3>
+<!--                             <ol>태그 속성    start = 시작 번호를 지정한다.
+              <ol>태그 하위 태그인 <li>태그 속성     value = 해당 항목의 순번을 변경한다. (순번이 변경되면 해당항목 이후에 나오는
+                                                                                   항목들도 자동으로 순번이 변경된다)
+                                        스타일 속성 'list-style-type' 에 설정할 수 있는 값
+           decimal(숫자) | lower-roman, upper-roman | lower-alpha, upper-alpha | hangul, korean-hangul-formal                                            -->
+
+<ol start="6" style="list-style-type:korean-hangul-formal;"><!--앞에 숫자 생김-->
+    <li>서울</li>
+    <li>대전</li>
+    <li>대구</li>
+    <ul style="list-style-type:disc">
+        <li>강정보</li>
+        <li>구공탄막창</li>
+        <li>수성못</li>
+    </ul>
+    <li value="1">부산</li>
+    <ol style="list-style-type:disc">
+        <li>해운대</li>
+        <li>광안리</li>
+        <li>부산갈매기</li>
+        <li>기장</li>
+    </ol>
+    <li>울산</li>
+    <li>울릉도</li>
+    <li>제주도</li>
+</ol>
+<hr color="red"/>
+
+<h3>정의 리스트</h3>
+<!--
+    형식)
+        <dl>
+            <dt>제목</dt>
+            <dd>제목에 대한 설명글 등의 내용을 기술한다.</dd>
+        </dl>
+-->
+<dl>
+    <dt>WWW</dt>
+    <dd>World Wide Web의 약자로 인터넷을 통칭하는 용어이다.</dd>
+    <dt>에스프레소</dt>
+    <dd>커피의 기본, 커피의 원액을 말한다.</dd>
+</dl>
+
+<h3>계절별 야생화</h3>
+<dl>
+    <dt>봄 꽃</dt>
+    <dd>봄에 피는 다년생 식물은 꽃잔디, 금낭화, 할미꽃, 어성초, 복수초, 산마늘, 붓꽃, 둥굴레, 삼지구엽초 등이 있다.</dd>
+    <dt>여름 꽃</dt>
+    <dd>여름에 꽃이 피는 식물은 옥잠화, 비비추, 맥문동, 애란, 수국,<br> 연, 인동초, 금계국, 달맞이꽃 등이 있다.</dd>
+    <dt>가을 꽃</dt>
+    <dd>가을에 꽃이 예쁜 식물은 구철초, 쑥부쟁이, 감국, 억새,</dd>
+    <dd>갈대, 배초향, 수크렁, 고려엉겅퀴 등이 있다.</dd>
+</dl>
+<hr color="red"/>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<!--
+    1. 자신의 취미들을 순서가 없는 리스트로 나타내보시오.
+    2. 자신이 가고 싶은 여행지를 순서가 있는 리스트로 나타내보시오.
+    3. HTML, Request(요청), Response(응답)에 대하여 설명하시오.
+-->
+<hr color="blue"/>
+<h3>취미</h3>
+<hr color="blue"/>
+<ul>
+    <li>PLAY 골프</li>
+    <li>드라이브</li>
+    <li>음악듣기</li>
+</ul>
+<hr color="blue"/>
+
+<h3>가고싶은 여행지</h3>
+<hr color="blue"/>
+<ol>
+    <li>제주도</li>
+    <li>삿포로</li>
+    <li>오사카</li>
+    <li>다낭</li>
+</ol>
+
+<hr color="blue"/>
+<h3>HTML, Request, Response에 대해 알아보자</h3>
+<hr color="blue"/>
+
+<h3>THML이란 무엇인가?</h3>
+<dt>HTML</dt>
+<dd> Hyper Text Markup Language의 약어이며, 웹페이지의 '뼈대'를 만드는 가장 기초적인 마크업 언어이다. </dd>
+<br>
+
+<h3>Request란 무엇인가? (요청)</h3>
+<dt>Request</dt>
+<dd>브라우저(사용자)가 서버에 "나 이거 필요해!"라고 보내는 메세지이다.</dd>
+<br>
+
+<h3>Response란 무엇인가? (응답)</h3>
+<dt>Response</dt>
+<dd>서버가 브라우저의 요청을 받고 "여기있어!" 혹은 "그건 없어(404에러)"라고 답하는 메세지이다.</dd>
+<br/>
+
+<hr color="blue"/>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
