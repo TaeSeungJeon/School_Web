@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float 연습</title>
+    <style>
+        /*
+            float : 요소들을 물 흐르듯이 차례로 배치하는 기능
+                속성 값
+                    left : 왼쪽으로 붙이면서 배치된다.
+                    right: 오른쪽으로 붙이면서 배치된다.
+
+            clear : float의 기능을 없앤다.
+                속성 값
+                    left : float의 설정값이 left인 것만 줄바꿈
+                    right: float의 설정값이 right인 것만 줄바꿈
+                    both : left, right 모두 줄 바꿈
+        */
+
+        div {
+            width: 80px; height:80px; border: 2px solid deepskyblue;
+            margin: 5px;
+            float: left;/*right*/
+        }
+        div.newLine {
+            clear: both;/*right | both*/   /*float랑 clear값이 반대어야 적용 됨*/
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div>1번</div>
+<div>2번</div>
+<div>3번</div>
+<div class="newLine">4번</div>
+<div>5번</div>
+<div class="newLine">6번</div>
+<div>7번</div>
+
+</body>
+</html>
