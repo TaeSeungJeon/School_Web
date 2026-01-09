@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>z-index 연습</title>
+
+<style type="text/css">
+
+    /*
+        z-index : 요소가 출력되는 계층 번호를 지정한다.
+                  계층 번호는 값이 클수록 앞쪽에 배치된다.
+    */
+
+    #one {
+        width: 400px; height:300px; background-color:yellow;
+        position:absolute; left:350px; top:150px;
+        z-index: 100;
+    }
+    #two {
+        width: 400px; height:300px; background-color:hotpink;
+        position:absolute; left:400px; top:200px;
+        z-index: 120;
+    }
+
+</style>
+
+</head>
+<body>
+
+<div id="one">1번 DIV영역<br>ㅇ3ㅇ<br>ㅇ3ㅇ<br>ㅇ3ㅇ<br>ㅇㅁㅇ<br>ㅇ^ㅇ</div>
+
+<div id="two">2번 DIV영역</div>
+
+
+</body>
+</html>
