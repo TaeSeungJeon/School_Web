@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>메시지 창</title>
+    <script>
+
+        /*
+
+        메세지 창   -> 메시지 창에서 줄바꿈 할 때는 '\n'을 사용.
+            1. alert 창 -> 경고 메시지를 출력하는 창
+             형식) alert("메세지");
+
+
+            alert("안녕하세요. alert창 입니다.");
+            alert("안녕하세요. \nalert창 입니다.");
+
+            2. prompt 창 -> 사용자로부터 자료를 입력받는 창
+             형식) 변수 = prompt("메시지","초기값");     ( 초기값 생략 가능 )
+                    -> 입력할 수 있는 창이 나타나고, 이 입력항에 자료를 입력한 후
+                        '확인'버튼이나 'enter'키를 누르면 입력한 값이 '변수'에 문자열로 저장된다.
+                        '취소'버튼이나 'esc'키를 누르면 null이 '변수'에 저장된다.
+
+
+            let data = prompt("이름을 입력하세요.", "입력 란");
+            console.log(`입력한값: " ${data}`);
+            //typeof 값 ->'값'의 자료형을 문자열로 나타낸다.
+            console.log(typeof data);
+
+            3. confirm 창 -> 메시지를 출력하고 2개 중 하나를 선택하는 창
+             형식) 변수 = confirm("메시지");
+                    ->'메시지'를 출력하는 창이 나타나고, 이 창에서 '확인' 버튼을 누르면 true
+                       '취소'버튼을 누르면 false가 '변수'에 저장된다.
+
+
+            let flag = confirm("당신은 남자입니까?(남자: 확인, 여자: 취소)")
+            console.log("결과: ", flag);
+
+            let str = flag ==true ? "남자" : "여자";
+            console.log(`당신은${str}이군요!!`)
+
+            '100' + '50' -> 10050
+            '100' - '50' -> 50
+
+
+            console.log('100' + '50')
+            console.log('100' - '50')
+            console.log('100' % '50')
+    */
+
+        // 문제) 숫자 2개를 차례로 입력 받아서 두 숫자의 덧셈 결과를 출력하시오
+        let num1 = prompt("첫번째 숫자를 입력하세요");
+        let num2 = prompt("두번째 숫자를 입력하세요");
+        // prompt 입력한 데이터 숫자형으로 변환하기
+
+        // 방법 1 -> Number()함수 이용
+        //num1 = Number(num1);
+        //num2 = Number(num2);
+        // 방법 2 -> 수식 이용하기
+        //num1 = num1 - 0;
+        //num2 = num2 * 1;
+        // 방법 2 코드 단축
+        num1 -= 0;
+        num2 *= 1;
+
+        let result = num1 + num2
+        console.log(`${num1} + ${num2} = ${result}`);
+
+        /*
+        "A" => 65
+        "a" => 97
+
+        "MBC" > "KBS"
+        "ABC" < "ABD"
+        "ABD" < "XY"
+        "ABC" > "AB"
+
+        "홍길동" > "일지매"
+        */
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

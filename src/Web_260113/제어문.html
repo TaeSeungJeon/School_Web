@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>제어문</title>
+
+<script>
+
+    /* 제어문 => 프로그램의 흐름을 제어하는 명령
+        1. 조건문 -> if문, switch문
+
+        2. 반복문 -> for문, while문, do~while문
+    */
+
+    let num = prompt("숫자를 입력하세요.");
+
+    /*    if(num>0){
+            console.log(num + "은(는) 양수입니다.");
+        }
+        if (num > 0){
+            console.log(num + "은(는) 양수입니다.")
+        }else{
+            console.log(num + "은(는) 양수가 아닙니다.")
+        }
+
+    if (num > 0){
+        console.log(num + "은(는) 양수입니다.")
+    }else if(num<0){
+        console.log(num + "은(는) 음수입니다.")
+    }else{
+        console.log(`${num}은 영(zero)입니다.`)
+    }
+
+    console.log("끝!~!");
+
+
+    switch문
+
+
+
+    switch (num%2){
+        case 0 :
+        console.log(`${num}= 짝수입니다.`)
+        break;
+        case 1 :
+        console.log(num + "= 홀수입니다.")
+        break;
+        default :
+            console.log(num + "= 숫자가 아닙니다.")
+    }
+*/
+    // switch문 값과 자료형을 같이 비교.
+
+    switch (num-0){ // -0 빠지면 안됨, *1 | case"1"  이런식으로 해줘서 형변환 해줘야함.
+        case 1 : alert("하나"); break;
+        case 2 : alert("둘"); break;
+        case 3 : alert("셋"); break;
+        case 4 : alert("넷"); break;
+        case 5 : alert("다섯"); break;
+        default : alert("더 이상은 몰라~");
+    }
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
