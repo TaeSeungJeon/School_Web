@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for 반복문</title>
+<script>
+
+   let sum = 0;
+/*
+
+    sum = sum + 1;
+    sum = sum + 2;
+    sum = sum + 3;
+    sum = sum + 4;
+    sum = sum + 5;
+    sum = sum + 6;
+    sum = sum + 7;
+    sum = sum + 8;
+    sum = sum + 9;
+    sum = sum + 10;
+*/
+for(let i = 1; i <= 100; i++){
+    sum = sum + 1;
+}
+    console.log("sum = " + sum);
+
+    console.log("=============")
+
+   //홀수 합계 예  ( i = 1을 2로 바꾸면 짝수합계)
+for(let i = 1; i <= 10; i+=2){
+    sum += i;
+}
+   console.log("sum = " + sum);
+
+   console.log("=============")
+
+for(let i = 1; i <= 4; i++){
+    console.log(`안쪽 반복 전 i = ${i}`)
+    for(let j = 1; j <= 3; j++){
+        console.log(`안쪽 반복문 안에서 i = ${i}, j = ${j}`);
+    }
+
+    console.log(`안쪽 반복 후 i = ${i}`)
+}
+// 문제 1부터 100까지 합계를 구하는 도중에 더해지는 값이 10의 배수마다 그 때까지의 합계를 출력하시오.
+   let total = 0;
+
+   for (let i = 1; i <= 100; i++) {
+       total += i;
+       if(i % 10 == 0)
+       //console.log(`${i} 중간 합계: ${total}`)
+       console.log(i + "중간합계" + total)
+   }
+   console.log("최종합계: " + total)
+
+   console.log("==========다른 풀이===========")
+
+   for(let i = 10; i <= 100; i += 10){
+       let sum = 0;
+       for(let j = 1; j <= i; j++){
+           sum +=j;
+       }
+       console.log(`1부터 ${i}까지의 합계 : ${sum}`)
+   }
+
+
+
+
+// 문제) 사용자로부터 출력할 단을 입력받아서 해당 단을 출력하시오.
+  let dan = prompt("구구단 단수를 입력하시면 구구단이 생성됩니다.");
+
+   for(let i = 1; i <= 9; i ++){
+       let r = dan * i;
+           console.log (dan + " * " + i + " = " + r);
+       }
+
+
+
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

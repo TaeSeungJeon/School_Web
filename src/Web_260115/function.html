@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>함수</title>
+    <script>
+
+        /*
+            함수 => 특정 기능을 가진 단위 프로그램
+                 => 한가지 목적을 달성하기 위해 작성된 코드들의 집합
+
+           -함수 종류
+             1) 내장 함수 => 프로그래밍 언어에서 미리 만들어 제공하는 함수
+                (1)eval(수식문자열)
+                    -> 주어진 '수식문자열'을 계산 가능한 식으로 변환 후 이 식을 처리한 결과를 반환.
+
+        let str = "(100/4+5)/5";
+        let ex = (100/4+5)/5;
+        let ev = eval(str);
+
+        console.log("str = ", str);
+        console.log("ex = ", ex);
+        console.log("ev = ", ev);
+
+        let ev2 = eval("ev + 20");
+
+        console.log("ev2 = " , ev2)
+
+        let con = eval("console");
+        con.log("안녕하세요")
+
+        (2) 문자열을 숫자로 변환하는 함수들 ...
+            - parseInt(문자열, 진수);
+                ->'문자열'을 정수형 숫자로 변환한다. (문자열을 대신해서 숫자도 가능하다.)
+                ->'진수'에는 10, 2, 8, 16 을 사용할 수 있고, 기본값은 10.
+
+        console.log("123.45 => ", parseInt(123.99));
+        console.log("123.45 => ", parseInt(12345));
+        console.log("123a45 => ", parseInt("123a45"));
+        console.log("'a123a45' => ", parseInt("a123a45"));
+
+        console.log( parseInt("100",2));
+        console.log( parseInt("128",8));
+        console.log( parseInt("2a",16));
+
+        -parseFloat("문자열")
+            -> 문자열을 실수형 숫자로 변환한다.
+
+        console.log (parseFloat("123.45"));
+        console.log (parseFloat("123.4a5"));
+        console.log (parseFloat("a123.45"));
+        console.log (parseFloat("12a3"));
+
+        -Number(숫자로만 구성된 문자열)
+            -> 숫자형으로 변환
+
+        console.log(Number("123"));
+        console.log(Number("123.45"));
+        console.log(Number("123.45"));
+        console.log(Number("123.45"));
+
+
+        (3) 숫자 여부를 판단하는 함수들...
+
+        -isFinite(값)
+            -> 값이 유한수(숫자)이면 true, 그렇지 않으면 false
+        -isNaN(값)
+            -> 값이 숫자이면 false, 숫자가 아니면 true
+
+
+        let num1,num2
+        do{
+            num1 = prompt("첫번째 숫자를 입력하세요");
+        }while(num1 == null || num1 =="" || !isFinite(num1));
+
+        do{
+            num2 = prompt("두번째 숫자를 입력하세요");
+        }while (num2 == null || num2 == "" || isNaN(num2))
+
+        let sum = Number(num1) + Number(num2);
+
+        console.log(` ${num1} + ${num2} = ${sum}`);
+
+
+        2) 사용자 정의 함수 ==> 사용자(프로그래머)가 만든 함수
+            - 함수 정의 -> 함수를 작성하는 것
+            형식1) 함수 선언문
+                function 함수명(파라미터변수들...){
+                    처리할 내용들;
+                    ~
+                    return 반환값;
+                    }
+            형식2) 함수 표현식
+                const 함수명 = function(파라미터변수들...){
+                    처리할 내용들;
+                    ~
+                    return 반환값;
+                    }
+
+            형식3) Function 생성자 함수 이용 => 거의 사용 안함 => 생략...
+
+            형식4) 화살표 함수
+                   const 함수명 = (파라미터변수들...) => {
+
+                   }
+            - 함수 호출
+                ==> 함수 영역으로 제어가 이동되어 함수가 실행되도록 하는 것
+            1) 파라미터 변수가 없고, 반환값도 없는 함수 호출
+               함수명();
+            2) 파라미터 변수가 있고, 반환값이 없는 함수 호출
+               함수명(값들...);
+            3) 파라미터 변수는 없고, 반환값이 있는 함수 호출
+               변수 = 함수명();
+            4) 파라미터 변수가 있고, 반환값도 있는 함수 호출
+               변수 = 함수명(값들...);
+
+
+        function insa(){
+            console.log("안녕하세요~");
+        }
+        //insa();
+        //insa();
+        //insa();
+
+        function insa2(name, age){
+            console.log(`나이가${age}세인 ${name}씨 안녕하세요.`);
+        }
+
+        //let irum = "Hong";
+        //let num = 30;
+
+        //insa2(irum, num);
+        //insa2("Lee",33);
+
+        function insa3(){
+            let str = "반갑습니다.";
+            return str;
+        }
+
+        let data = insa3();
+        console.log("data= ", data);
+
+        console.log("insa3() => " + insa3() );
+
+        function sub(a,b){
+            return a -b;
+        }
+        let a = 100;
+        let b = 30;
+        //let c = sub(a, b);
+        let c = sub(b, a);
+
+        console.log("c = " + c);
+
+
+    문제) 사용자로부터 단을 입력받아 구구단 중 입력한 단에 해당하는 구구단을 출력하는 프로그램을 작성하시오
+         단, 해당 단을 출력하는 부분을 함수로 작성 처리 하시오
+  *//*
+        function Gugudan(dan){
+
+            for(let i = 1; i <= 9; i ++){
+                let r = dan * i;
+                console.log (dan + " * " + i + " = " + r);
+            }
+        }
+        let dan = prompt("단을 입력하세요");
+        Gugudan(dan);
+
+        let num;
+        do{
+            num = prompt("출력할 단을 입력하세요");
+        }while(num == null || num == "" || isNaN(num));
+
+        gugudan(num);
+
+
+            문제) 두 수를 파라미터로 받아서 작은 수부터 큰 수까지의 합계를 구하는 함수를 작성하시오.
+   /*
+        function hap(num1, num2){
+            let max = num1;
+            let min = num2;
+
+            if(num1 < num2){
+                max = num2;
+                min = num1;
+            }
+            let sum = 0;
+            for(let i = min; i <= max; i++){
+                sum += i;
+            }
+            console.log(`${min} 부터 ${max}까지의 합계 : ${sum}`);
+        }
+        hap(177, 200);
+
+
+                 문제) 년도를 매개변수로 받아서 해당 년도가 윤년인지 평년인지 판정하여 출력하는 함수를 작성하시오.
+                        윤년은 4년에 한번씩, 평년은 100년에 한번씩
+                        그리고 다시 400년에 한번씩은 윤년
+
+        function yun(year){
+            let result;
+
+            if(year%400 == 0 || (year%4 == 0 && year%100 != 0)){
+                result = "윤년";
+            }else{
+                result = "평년";
+            }
+            console.log(`${year}년은 '${reault}'입니다.`);
+        }
+        let y;
+        do{
+            y = prompt("년도를 입력하세요.");
+        }while(y == null || y == "" || isNaN(y));
+
+        yun(y);
+
+        - 함수의 매개변수 ( 파라미터변수 ) 에 '디폴트값' 설정하기
+            형식) function 함수명( 변수명 = 디폴트값, ...){
+                 처리할 내용들;
+                 ...
+                 }
+*/
+        function printMsg(msg = "안녕하세요"){
+            console.log(msg);
+        }
+        printMsg("반갑습니다.");
+
+        printMsg();
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>가위 바위 보</title>
+
+    <script>
+
+        // 문제) 두 사람의 가위 바위 보를 각각 입력 받아서 판정 결과를 출력하시오.(if문 사용)
+        //      출력 예) 첫번째 사람 : 가위    |   두번쨰 사람 : 보     |    판정 결과 : 첫번째 사람 승!
+
+        let man1
+        do{
+            man1 = prompt("첫번째 사람의 가위 바위 보 입력.")
+        }while( !(man1 == "가위" || man1 == "바위"  || man1 == "보") );
+
+        let man2
+        do{
+            man2 = prompt("두번째 사람의 가위 바위 보 입력.")
+        }while(man2 != "가위" && man2 != "바위" && man2 != "보");
+
+        // !(조건식1 && 조건식2 )  => !조건식1 || !조건식2
+        // !(조건식1 || 조건식2 )  => !조건식1 && !조건식2
+
+        let result;     // 판정 결과가 저장될 변수
+
+        if (man1 == man2){
+            result="무승부"
+        }else if((man1=="가위" && man2=="보") || (man1=="바위" && man2=="가위") || (man1=="보" && man2=="바위")){
+            result = "첫번째 사람 승!"
+        }else{
+            result = "두번째 사람 승!~"
+        }
+        console.log (`첫번째 사람 : ${man1}`);
+        console.log (`두번째 사람 : ${man2}`);
+        console.log ("판정결과 : " + result);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
