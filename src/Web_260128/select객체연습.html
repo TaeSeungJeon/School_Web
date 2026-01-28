@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:c="">
+<head>
+    <meta charset="UTF-8">
+    <title>구구단 출력</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            document.querySelector("#guguBtn").addEventListener("click", function () {
+
+                const dan = document.guguForm.dan.value;
+
+                let htmlCode = `<h3>${dan}단</h3>`;
+                for (let i = 1; i <= 9; i++) {
+                    let r = dan * i;
+
+                    htmlCode += `${dan} * ${i} = ${r} <br>`;
+                }
+
+                document.querySelector("#result").innerHTML = htmlCode;
+            });
+            document.querySelector("select[name=dan2]").addEventListener("change", function (e) {
+
+                const selObj = e.currentTarget;
+
+                const index = selObj.selectedIndex;
+                const dan = selObj.options[index].value;
+
+            })
+        });
+    </script>
+</head>
+<body>
+<form name="guguForm">
+    <select name="dan">
+        <c:forEach var="i" begin="1" end="9">
+        </c:forEach>
+        <option value="1">1 단</option>
+        <option value="2">2 단</option>
+        <option value="3">3 단</option>
+        <option value="4">4 단</option>
+        <option value="5">5 단</option>
+        <option value="6">6 단</option>
+        <option value="7">7 단</option>
+        <option value="8">8 단</option>
+        <option value="9">9 단</option>
+    </select>
+    <input type="button" value="출력" id="guguBtn">
+</form>
+
+<hr>
+<h3>결과 출력</h3>
+<div id="result">
+</div>
+</body>
+</html>

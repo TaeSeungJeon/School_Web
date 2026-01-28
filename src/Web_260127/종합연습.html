@@ -10,6 +10,7 @@
         취미는 00, 00, 0000 이군요
 */
 window.onload = function() {
+    /*
 
     document.getElementById('viewBtn').onclick = function() {
         const form = document.exForm;
@@ -42,15 +43,34 @@ window.onload = function() {
         form.result.value = resMsg;
     };
 };
+*/
 
 
-
-/*
+    /*
     출력 예시 2)
         홍길동씨 당신은 남자 or 여자 이고,
         취미는 없군요
 */
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector("#viewBtn").addEventListener("click", function () {
+            const f = document.exForm;
 
+            const name = f.irum.value;
+
+            if(name.trim() === "") {
+                alert("이름을 입력하세요");
+                f.irum.focus();
+
+            }
+            let gen = "";
+            if (f.gender[0].checked) {
+                gen = "남자";
+            }else{
+                gen=f.gender[1].value;
+            }
+        })
+    });
+}
 
 
 </script>
