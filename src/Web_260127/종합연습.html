@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>종합연습</title>
+<script>
+
+/*    출력 예시 1)
+        홍길동 당신은 남자 or 여자 이고,
+        취미는 00, 00, 0000 이군요
+*/
+window.onload = function() {
+
+    document.getElementById('viewBtn').onclick = function() {
+        const form = document.exForm;
+
+        let name = form.irum.value;      // 이름 가져오기
+
+        let gender = form.gender.value;     // 성별(Radio) 값 가져오기 | 체크된 항목 하나만 가져옴
+
+
+        let hobbies = [];       // 취미(Checkbox) 값 가져오기 - 여러 개를 배열로 모음
+        let hobbyElements = form.hobby;
+
+        for (let i = 0; i < hobbyElements.length; i++) {
+            if (hobbyElements[i].checked) {
+                hobbies.push(hobbyElements[i].value);
+            }
+        }
+
+        let resMsg = `${name}님 당신은 ${gender}이고,\n\n`;
+
+        if (hobbies.length > 0) {
+            // 취미가 있을 때: join()을 사용해 쉼표로 연결
+            resMsg += `취미는 \n${hobbies.join(', ')} 이군요~`;
+        } else {
+            // 취미가 없을 때
+            resMsg += `취미는 없군요`;
+        }
+
+        // 결과 출력 - textarea에 대입
+        form.result.value = resMsg;
+    };
+};
+
+
+
+/*
+    출력 예시 2)
+        홍길동씨 당신은 남자 or 여자 이고,
+        취미는 없군요
+*/
+
+
+
+</script>
+
+</head>
+<body>
+<form name="exForm">
+    이  름 : <input type="text" name="irum"><br><br>
+
+    성  별 : <input type="radio" name="gender" value="남자" checked> 남<br>
+    성  별 : <input type="radio" name="gender" value="여자"> 여
+<br><br>
+    취  미 :<br>
+    <input type="checkbox" name="hobby" value="'여행'"> 여행<br>
+    <input type="checkbox" name="hobby" value="'낚시'"> 낚시<br>
+    <input type="checkbox" name="hobby" value="'음악청취'"> 음악청취<br>
+    <input type="checkbox" name="hobby" value="'골프'"> 골프<br>
+    <input type="checkbox" name="hobby" value="'드라이브'"> 드라이브<br>
+    <input type="checkbox" name="hobby" value="'볼링'"> 볼링<br>
+    <input type="checkbox" name="hobby" value="'게임'"> 게임
+
+    <input type="button" value="결과 출력" id="viewBtn"><br><br>
+    <textarea rows="10" cols="60" name="result"></textarea>
+</form>
+</body>
+</html>

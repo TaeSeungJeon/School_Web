@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event 처리</title>
+
+<script>
+    /*
+        - event (이벤트) - 사용자의 행동 발생을 알리는 신호를 말한다.
+
+          이벤트핸들러 - 이벤트가 발생 했을 때 처리할 프로그램 집합
+                     - 보통 이벤트핸들러의 내용이 복잡하거나 많으면 이런 내용을 함수로 작성하고,
+                       '이벤트핸들러'에서는 이 함수를 호출해서 실행한다.
+                        즉, 이벤트와 이벤트핸들러를 서로 연결하여 프로그램을 진행한다.
+
+           ~ 이벤트와 이벤트핸들러 연결하기 ~
+           1) HTML 태그에서 직접 지정하는 방법 (인라인 방식 ==> 주로 test용으로 많이 사용한다.)
+                형식) <태그 ... on 이벤트명 = "이벤트핸들러">
+                         내용
+                     </태그>
+           2) <script> 영역에서 지정하는 방법
+
+                        > 한 요소에 같은 이벤트를 여러개 설정하면 덮어서 써진다 <
+             2-1) '객체.on이벤트명'을 이용하는 방법
+                <script>
+                   객체명.on이벤트명 = function(){
+                       처리할 내용들;
+                       ...
+                   }
+                < /script>
+
+         > 한 요소에 같은 이벤트를 여러개 설정하면 내용이 이벤트 큐에 저장되고, 실행도 순차적으로 된다. <
+             2-2) addEventListener() 메서드를 이용하는 방법
+             <script>
+                 객체명.addEventListener("이벤트명", function(){
+                     처리할 내용들;
+                     ...
+                 });
+             < /script>
+
+
+    - 이벤트 종류
+        1. click        ==> 클릭
+        2. dblclick     ==> 더블클릭
+        3. mousedown
+        4. mouseup
+        5. mouseover    ==> 커서가 객체 영역으로 들어오는 순간 발생
+        6. mouseout     ==> 커서가 객체 영역에서 벗어나는 순간 발생
+        7. mousemove    ==> 마우스가 움직이는 순간마다 발생
+
+        8. focus        ==> 포커스가 발생하는 순간 발생
+        9. blur         ==> 포커스를 읽어버리는 순간 발생
+
+        10. change      ==> 값이 변경되었을 때 발생
+        11. input       ==> <input>, <textarea>, <select> 태그에서 값이 변경되었을 때 발생
+
+        12. submit      ==> 서버로 데이터를 전송하는 순간 발생
+        13. reset       ==> <form>에서 reset(초기화)하는 순간에 발생하는 이벤트
+
+        14. load        ==> 문서내용, 이미지 등의 읽기 작업(로딩)이 완료된 후 발생
+        15. unload      ==> 문서가 닫히는 순간에 발생
+
+        16. keydown     ==> 키보드의 키를 누르는 순간 발생
+        17. keyup       ==> 눌려진 키보드가 올라오는 순간 발생
+        18. keypress    ==> 키보드가 눌렸다 떨어지는 순간
+
+        19. resize      ==> 크기가 변경되는 순간 발생
+
+        20. DOMContentLoaded    ==> 문서가 읽혀져서 DOM 객체로 변환된 후 발생
+    */
+
+    // document.addElementById("id속성값");
+    //  ==> 문서에서 'id속성'의 속성값이 'id속성값'인 객체(엘리멘트)를 찾아준다.
+
+
+/* function hi (){
+     alert("반갑습니다.");
+ }
+
+    window.onload = function () {
+        //alert("안녕하세요 load 이벤트 입니다~");
+        console.log("load", document.getElementById("testBtn"));
+    }
+    */
+     document.addEventListener("DOMContentLoaded", function () {
+                                        //alert("DOMContentLoaded 이벤트 입니다~~");
+         const btn = document.getElementById("testBtn");
+         btn.onclick = function () {
+             console.log("id를 이용하여 검색한 버튼 클릭")
+         }
+         const btn2 = document.getElementById("testBtn2");
+         btn2.addEventListener("click", function () {
+             console.log("addEventListener를 이용하여 검색한 버튼2 클릭")
+         });
+
+     });
+
+    /*console.log(document.getElementById("testBtn"));*/
+
+    function test() {
+        console.log("Daum사이트 바로가기 링크입니다.");
+    }
+    function test2() {
+        console.log("Daum사이트 바로가기 링크에서 마우스가 벗어났습니다.");
+    }
+
+</script>
+</head>
+                    <!--<body onload=" alert ('안녕하세요'); ">-->
+                    <!--<body onload="hi();">-->
+
+<body>
+<h2> 이벤트 연습용 문서~</h2>
+<a href="https://www.daum.net" onmouseover="test()" onmouseout="test2()">Daum 사이트 방문하기</a>
+<br><br>
+
+<input type = "button" value="확인" onclick = "hi()">
+
+<input type = "button" value="클릭하세요" id="testBtn">
+<input type = "button" value="클릭하세요2" id="testBtn2">
+<br><br>
+
+<input type="text" onfocus="console.log('포커스가 왔습니다.')"
+                   onblur="console.log('포커스를 잃었습니다.')" >
+
+<br><br>
+keyup : <input type = "text" onkeyup="console.log('keyup', this.value)"><br>
+keydown : <input type = "text" onkeydown="console.log('keydown', this.value)"><br>
+keypress : <input type = "text" onkeypress="console.log('keypress', this.value)"><br>
+input : <input type = "text" oninput="console.log('input', this.value)"><br>
+
+<!--<script>
+    console.log("==>", document.getElementById("testBtn"));
+</script>-->
+
+</body>
+</html>

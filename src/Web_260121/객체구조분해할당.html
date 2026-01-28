@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>객체 구조 분해 할당</title>
+    <script>
+
+        /*
+            객체 구조 분해 할당
+                형식 1) const 또는 let {변수명1, 변수명2, ~~~} = 객체;
+                    ==> '변수명'들은 '객체'의 key값(속성명)과 같아야한다.
+                         (순서는 관계없다.)
+                형식 2) const 또는 let { 변수명, 변수명2:새로운 변수명, ~~~} = 객체;
+                    ==> '변수명'대신 '새로운변수명'으로 사용할 때
+                형식 3) const 또는 let { 변수명1, 변수명2 = 기본값, ~~~} = 객체;
+                    ==> '변수명'이 존재하지 않으면 '기본값'으로 할당 된다.
+                형식 4) const 또는 let { 변수명1, 변수명2, ~~~, ...변수명n } = 객체;
+                    ==> '변수'들에 할당하고 남은 데이터들을 '변수명n'에 모두 설정한다.
+
+
+        const subject = {
+            kor : "국어",
+            eng : "영어",
+            mat : "수학"
+        };
+
+        const{kor, eng, mat} = subjects;
+
+        console.log("kor", kor);
+        console.log("eng", eng);Z
+        console.log("mat", mat);
+
+        let mat = "산수";
+
+        const {kor, eng, mat:math} = subjects;
+        console.log("kor",kor);
+        console.log("eng",eng);
+        console.log("mat",mat);
+        console.log("math",math);
+
+
+        console.log("subjects", subjects);
+
+        const {kor, ...rest} = subjects;
+
+        console.log()
+
+
+        const user = [
+            {name : "홍길동", age: 25},
+            {name : "일지매", age: 30},
+            {name : "성춘향", age: 33},
+        ];
+        for (const user of user) {
+            console.log("이름: " + user.name);
+            console.log("나이: " + user.age);
+            console.log("----------------------");
+        }
+
+        // 구조 분해 할당 이용
+        for (const {name, age} of users) {
+            console.log("이름: " + user.name);
+            console.log("나이: " + user.age);
+            console.log("----------------------");
+        }
+
+         */
+
+        const user = {name: "이순신", age: 43 };
+
+        function printUser(paraUser) {
+            const name = paraUser.name;
+            const age = paraUser.age;
+
+            console.log("이름: " + name + ", 나이: " + age);
+
+        }
+
+        function printUser2({name, age}) {
+            console.log(`-이름: ${name}, -나이: ${age}`);
+
+        }
+
+        printUser(user);
+        printUser2(user);
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

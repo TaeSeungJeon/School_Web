@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location 객체</title>
+
+    <script>
+
+        /*
+        location 객체 ==> 문서자 저장된 위치에대한 정보를 관리하는 객체 (URL정보를 관리한다.)
+
+            - URL주소:
+                https://www.ddit.or.kr:9090/main/index.html#one?name=hong&age=30
+
+             protocol : http
+             hostname : www.ddit.or.kr
+               port   : 9090                // port 번호가 80번 일때는 값이 출력되지 않는다.
+               host   : www.ddit.or.kr:9090 // port 번호가 80번 일때는 값이 출력되지 않는다.
+             pathname : main/index.html
+               hash   : #one
+              search  : ?name=hong&age=30
+
+               href   : URL주소 전체
+
+        */
+
+
+        function test() {
+            console.log("herf", location.href);
+            console.log("protocol", location.protocol);
+            console.log("hostname", location.hostname);
+            console.log("port", location.port);
+            console.log("host", location.host);
+            console.log("pathname", location.pathname);
+            console.log("hash", location.hash);
+            console.log("search", location.search);
+
+            //location.href = "window객체.html";
+            //location.assign("window객체.html");
+            //location.replace("window객체.html");
+
+        }
+
+
+
+    </script>
+
+</head>
+<body>
+
+<a href="location객체.html#one?name=hong&age=30">현재 문서 다시 열기</a>
+<br>
+<hr>
+<br>
+
+<input type="button" value="확인" onclick="test()">
+
+
+</body>
+</html>

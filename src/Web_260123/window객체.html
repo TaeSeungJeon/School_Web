@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window 객체</title>
+  <script>
+    /*
+    BOM (Browser Object Model) ==> 웹브라우저에서 제공하는 객체
+
+  window객체 ==> BOM 최상위 객체
+            ==> 'window' 라는 이름으로 생성되어 있고
+                 이 객체의 멤버들을 사용할 때 'window' 를 생략할 수 있다.
+                 예) window.open()   ==> open()
+     - 속성
+        opener ==> 자식 창에서 부모 창을 가리키는 객체 (이것도 하나의 window 객체이다)
+
+     - 메서드
+        1) open()   ==> 새 창을 만들어준다.
+            형식) 변수 = window.open("문서명 또는 URL주소", "창이름","창속성");
+                ==> 창이름이 같으면 새로운 창이 만들어지지 않고 이미 만들어진 창이름이 같은 창에 내용들이 나타남
+                ==> 창속성은 창의 크기, 새 창이 나타날 위치등을 지정.
+                    예)  "width=400, height=300. left=200, top=100"
+        2) close()  ==>창을 닫는다
+            형식)
+                window.close();
+                self.close();
+                close();    // 위 3가지는 모두 현재 창을 닫아준다
+                변수.close(); // 부모창에서 변수가 가리키는 자식창을 닫아준다
+         3) 시간변수 = setTimeout(처리할 함수, 시간);
+            ==> 주어진 시간이 경과하면 처리할 함수를 실행한다
+            ==> 시간은 밀리세컨단위를 사용한다
+
+            ClearTimeout(시간변수);
+                ==>setTimeout()의 기능을 해제
+          4) 시간변수 = setInterval (처리할함수, 시간)
+            ==> 주어진 시간이 경과할 때 마다 처리할 함수를 실행
+*/
+
+    let mywin = null;
+    function newOpen(){
+    window.open("subWin.html","test","width=400, height=300, left=400, top=200");
+    }
+
+    function newOpen2(){
+    window.open("https://www.daum.net","test","width=400, height=300, left=400, top=200");
+    }
+
+    function childClose(){
+        if (mywin != null) {
+            mywin.close();
+            mywin = null;
+        } else {
+            alert("닫을 자식창이 없습니다.")
+        }
+    }
+
+    function timeoutTest(){
+        //setTimeout(newOpen, 3000);
+        setTimeout(function(){
+            open("subWin.html","","width=400, height=300, left=400, top=200");
+        }, 3000);
+    }
+
+    let time = null;
+    function intervalTest(){
+        time = setInterval(function(){
+            open("subWin.html","","width=400, height=300, left=400, top=200");
+        }, 1000);
+    }
+
+    function clearTest(){
+        clearInterval(time);
+    }
+
+    function toChild() {
+        if(mywin != null){
+            mywin.document.getElementById("child").innerHTML="부모가 자식한테 보낸 메세지~";
+        }
+    }
+
+
+  </script>
+</head>
+<body>
+<form>
+
+    <input type="button" value="새창만들기" onclick="newOpen()">
+    <input type="button" value="새창만들기2" onclick="newOpen2()">
+    <input type="button" value="자식창닫기" onclick="childClose()">
+    <input type="button" value="3초 후에 새 창 만들기" onclick="timeoutTest()">
+    <input type="button" value="1초 마다  새 창 만들기" onclick="intervalTest()">                      <!--재밌는거 ㅎㅎㅎㅎ-->
+    <input type="button" value="새 창 만들기 종료" onclick="clearTest()">
+
+    <input type="button" value="자식 창으로 메시지 보내기" onclick="toChild()">
+
+</form>
+
+<br><br>
+
+</body>
+</html>

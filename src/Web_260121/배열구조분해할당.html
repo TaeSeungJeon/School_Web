@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배열구조분해할당</title>
+  <script>
+
+/*
+  - 구조 분해 할당
+    ==> 배열이나 객체를 분해서 각각의 값을 개별적인 변수에 저장하는 표현식
+
+    1. 배열 구조 분해 할당
+      형식1) const 또는 let [변수명1, 변수명2, ...] = 배열;
+        ==> '배열'의 값들이 순서대로 변수들에 저장된다.
+        ==> '변수'의 개수보다 '배열'의 개수가 적으면 값을 차례로 저장하고,
+             나머지 변수들은 'undefined' 가 된다.
+
+      형식2) const 또는 let [변수명1, 변수명2 = 기본값, ...] = 배열;
+        ==> '배열'에서 변수에 저장할 값이 없을 경우 '기본값'으로 할당된다.
+
+      형식3) const 또는 let [변수명1, 변수명2, ~~~, ...변수명n] = 배열;
+        ==> '...'을 '스프레드 연산자'라 부른다.
+        ==> '배열'의 값들을 변수들에 저장하고 남은 모든 데이터들을 '변수명n'에
+             배열로 할당된다.  (... 변수명) ==> rest문법
+*/
+
+const subjects = ["국어", "영어", "수학"];
+
+// const kor = subjects[0];
+// const eng = subjects[1];
+
+/*const [kor, eng] = subjects;
+
+console.log("kor = ", kor);
+console.log("eng = ", eng);
+console.log("mat = ", mat);*/
+
+//const [kor, , mat] = subjects;
+
+/*const [kor, eng, mat = "산수", science="과학"] = subjects;
+
+console.log("kor = ", kor);
+console.log("kor = ", eng);
+console.log("mat = ", mat);
+console.log("science = ", science);*/
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

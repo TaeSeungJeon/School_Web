@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sort</title>
+
+<script>
+
+    /*
+        - sort()
+            ==> 배열의 요소값들을 오름차순으로 정렬하여 재배치한다.
+            ==> 배열의 요소값들을 문자열로 변환하여 정렬한다.
+
+        - sort(정렬함수)
+            ==> 정렬함수를 이용하여 정렬 방식을 결정한다.
+            ==> 정렬함수는 파라미터 변수가 2개로 구성되어 있고,
+                배열의 인접해있는 데이터 2개를 가져와 비교하는 열할을 수행한다.
+            ==> 정렬함수의 반환값이 양수이면 인접한 2개의 데이터의 순서가 바뀌고,
+                음수를 반환하면 순서가 변하지 않는다. (같을 때는 0을 반환.)
+
+        정렬함수 형식)
+        function 정렬함수명(변수1, 변수2){
+            // 오름차순 예
+                ==> if (변수1 < 변수2){
+                        return -1;
+                    }else{
+                        return 1;
+                    }
+                }
+    */
+
+    const a = [90, 70, 95, 100, 75, 80];
+    console.log("정렬 전 : " + a);
+
+    a.sort()
+    console.log("정렬 후 : " + a);
+
+
+    // 정렬함수 정의
+    function comp(x, y){
+        if (x < y){
+            return -1;
+        }else{
+            return 1;
+        }
+    }
+    a.sort(comp);
+    console.log("정렬 후 : " + a);
+
+    a.sort((x, y)=>{
+        if(x > y){
+            return -1;
+        }else{
+            return 1;
+        }
+    });
+    console.log("-- 정렬 후 : " + a);
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

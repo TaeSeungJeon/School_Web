@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자식창</title>
+
+  <script>
+    function closeTest(){
+      self.close();
+    }
+
+    function toParent(){
+      opener.document.getElementById("parent").innerHTML="자식이 보내는 메세지~";
+    }
+
+  </script>
+
+
+</head>
+<body>
+<h2>자식창입니다</h2>
+
+<form>
+  <input type="button" value="창닫기" onclick="closeTest()">
+  <input type="button" value="부모창으로 메시지 보내기" onclick="toParent()">
+</form>
+
+</body>
+</html>

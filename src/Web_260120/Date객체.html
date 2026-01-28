@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date 객체</title>
+
+    <script>
+
+        /*
+         - Data 객체 ==> 날짜와 시간을 관리하는 객체
+            ==> 기준날짜 : 1970년 1월 1일 0시 0분 0초 (표준시간)
+                          1970년 1월 1일 9시 0분 0초 (대한민국 시간)
+
+         - 객체 생성
+            객체변수 = new Date();
+                ==> 현재 날짜 및 시간으로 구성된 Data객체 생성
+            객체변수 = new Date ( 밀리세컨드값 );
+                ==> 기준날짜로 부터 주어진 밀리세컨드 값 만큼 경과한 날짜 및 시간으로 구성된 Date 객체 생성
+                    ( 밀리세컨드 ==> 1/1000초 즉, 1000 == 1초 )
+            객체변수 = new Date ( 날짜 문자열 )
+                ==> 주어진 날짜로 구성된 Data객체 생성
+                ==> 날짜 문자열 형식) 'YYYY-MM-DDThh:mm:ss.sssZ'
+            객체변수 = new Date( 년, 월-1, 일, 시, 분, 초)
+                ==> 주어진 날짜로 구성된 Date객체 생성 (일, 시, 분, 초)는 생략 가능
+                ==> Date객체의 '월'의 값이 0이면 '1월'을 의미하고, 1이면 '2월' ... 11은 '12월'로 처리된다.
+
+         - 메서드
+            1) getter 메서드 ==> Date 객체에 설정된 정보를 가져오는 메서드
+                - getFullYear()     ==> 년도
+                - getMonth() + 1    ==> 월
+                - getDate()         ==> 일
+                - getDay()          ==> 요일 ( 반환값이 0:일, 1:월, 2:화, 3:수, ..., 6:토 )
+                - getHours()        ==> 시
+                - getMinutes()      ==> 분
+                - getSeconds()      ==> 초
+                - getTime()         ==> 기준 날짜로부터 'Data객체'에 설정된 날짜 및 시간까지 경과한 시간을 밀리세컨 단위로 반환
+
+
+        const testDay = new Date(2026, 0, 20, 9, 0, 35);
+        console.log("getTime => " + testDay.getTime());
+
+        let y = testDay.getFullYear();
+        let m = testDay.getMonth() +1;
+        let d = testDay.getDate();
+
+        let w = testDay.getDay();
+
+
+        console.log(`${y}년 ${m}월 ${d}일 ${w}`)
+
+        let week = "";
+        switch (w) {
+            case 0 : week = "일요일"; break;
+            case 1 : week = "월요일"; break;
+            case 2 : week = "화요일"; break;
+            case 3 : week = "수요일"; break;
+            case 4 : week = "목요일"; break;
+            case 5 : week = "금요일"; break;
+            case 6 : week = "토요일"; break;
+        }
+        console.log("요일 : " + week);
+
+          2) setter 메서드 ==> Date 객체에 설정된 값을 변경하는 메서드
+            - setYear(년도);       // 년도 변경
+            - setMonth(월-1);      // 월
+            - setDate(일);         // 일
+            - setHours(시);        // 시
+            - setMinutes(분);      // 분
+            - setSeconds(초);      // 초
+            - setTime(경과시간);
+                ==> 기준날짜로부터 주어진 '경과시간'만큼 경과한 날짜 및 시간으로 Data객체를 재설정한다.
+                    (경과시간은 밀리세컨 단위로 기술)
+
+           3) 날짜와 시간 정보를 반환하는 메서드
+            - toGMTString()     ==> 표준시간을 기준으로 날짜와 시간을 반환한다.
+            - toLocaleString()  ==> 해당 지역의 시간을 기준으로 날짜와 시간을 반환한다.
+            - toString()        ==> 표준시간과 지역시간의 관계도 반환
+
+
+        const testDay = new Date();
+        console.log("toGMTString => ", testDay.toGMTString());
+        console.log("toLocaleString => ", testDay.toLocaleString());
+        console.log("toString => ", testDay.toString());
+
+        console.log("---------------------------------------------------------------")
+
+        testDay.setYear(2000);
+        console.log("toLocaleString => ", testDay.toLocaleString());
+
+        testDay.setTime( 1000000 );
+        console.log("toLocaleString => ", testDay.toLocaleString())
+
+
+  //문제) 2010년 1월 1일부터 오늘까지의 날짜 수를 구하는 프로그램을 작성하시오
+
+
+        const testDay = new Date(2010, 0, 1);   // 1월은 0부터 시작
+        const toDay = new Date();
+
+        let sub = toDay - testDay;
+
+        let days = parseInt( sub / (24 * 60 * 60 * 1000));
+
+        console.log("날짜 수 : 오늘까지 " + days + "일 차이");
+
+
+*/
+//문제2) 오늘부터 500일 후의 날짜를 출력하는 프로그램을 작성하시오
+
+        const testDay = new Date();
+
+        let total = testDay.getTime() + (24 * 60 * 60 * 1000) * 500;
+
+        testDay.setTime( total );
+
+        const y = testDay.getFullYear();
+        const m = testDay.getMonth();
+        const d = testDay.getDate();
+
+        console.log(`500일 후 : ${y}년 ${m}월 ${d}일`);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
